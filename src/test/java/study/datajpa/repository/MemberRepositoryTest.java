@@ -102,7 +102,6 @@ class MemberRepositoryTest {
         Member member2 = new Member("BBB",20);
         memberRepository.save(member1);
         memberRepository.save(member2);
-
         List<String> usernameList = memberRepository.findUsernameList();
         for (String s : usernameList) {
             System.out.println("s = " + s);
