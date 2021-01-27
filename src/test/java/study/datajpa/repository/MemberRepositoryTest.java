@@ -241,4 +241,19 @@ class MemberRepositoryTest {
         }
     }
 
+    @Test
+    public void queryHint(){
+        //givien
+        Member member1 = memberRepository.save(new Member("member1", 10));
+        em.flush();
+        em.clear();
+
+        //when
+        Member findMember = memberRepository.findReadOnlyByUsername("member1");
+        findMember.changeUsername("member2");
+        //flush시 변경감지가 동작
+        em.flush();
+
+    }
+
 }
